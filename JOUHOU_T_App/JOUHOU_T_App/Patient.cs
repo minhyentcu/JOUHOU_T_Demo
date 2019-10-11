@@ -34,15 +34,15 @@ namespace JOUHOU_T_App
 
                 if (txbName.Text.Length > 10)
                 {
-                    message = "Tên không hợp lệ";
+                    message = "数字しか入力できません。";
                 }
                 if (txbAddress.Text.Length > 20)
                 {
-                    message = "Địa chỉ không hợp lệ";
+                    message = "数字しか入力できません。";
                 }
                 if (nGroup.Value > 9 || nGroup.Value < 0)
                 {
-                    message = "Nhóm bệnh nhân không hợp lệ";
+                    message = "数字しか入力できません。";
                 }
 
                 if (!string.IsNullOrEmpty(message))

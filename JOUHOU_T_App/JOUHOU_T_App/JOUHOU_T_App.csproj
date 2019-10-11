@@ -71,27 +71,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
-    <Compile Include="Database\GROUP_T.cs">
-      <DependentUpon>JOUHOU_T_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\JOUHOU_T.cs">
-      <DependentUpon>JOUHOU_T_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\JOUHOU_T_Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JOUHOU_T_Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\JOUHOU_T_Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JOUHOU_T_Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database\JOUHOU_T_Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>JOUHOU_T_Model.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Main_form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,13 +100,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EntityDeploy Include="Database\JOUHOU_T_Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>JOUHOU_T_Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Database\JOUHOU_T_Model.edmx.diagram">
-      <DependentUpon>JOUHOU_T_Model.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -141,18 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Database\JOUHOU_T_Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>JOUHOU_T_Model.Context.cs</LastGenOutput>
-      <DependentUpon>JOUHOU_T_Model.edmx</DependentUpon>
-    </Content>
-    <Content Include="Database\JOUHOU_T_Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>JOUHOU_T_Model.edmx</DependentUpon>
-      <LastGenOutput>JOUHOU_T_Model.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -169,6 +129,8 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Database\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

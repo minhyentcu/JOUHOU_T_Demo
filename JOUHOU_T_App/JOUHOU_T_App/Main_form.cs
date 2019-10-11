@@ -49,7 +49,7 @@ namespace JOUHOU_T_App
             {
                 // process logging
 
-                MessageBox.Show("Lỗi data", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("数字しか入力できません。", "Thông báo", MessageBoxButtons.OK);
             }
         }
         // Opent form Patient when click
