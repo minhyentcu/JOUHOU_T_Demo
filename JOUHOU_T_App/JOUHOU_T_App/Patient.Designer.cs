@@ -67,7 +67,7 @@
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 39);
             this.btnBack.TabIndex = 4;
-            this.btnBack.Text = "Trở về";
+            this.btnBack.Text = "終了";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
@@ -78,7 +78,7 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 39);
             this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Thêm";
+            this.btnAdd.Text = "保存";
             this.btnAdd.UseVisualStyleBackColor = false;
             this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
@@ -104,9 +104,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(15, 23);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(131, 20);
+            this.label3.Size = new System.Drawing.Size(59, 20);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Nhóm bệnh nhân";
+            this.label3.Text = "グループ";
             // 
             // panel3
             // 
@@ -131,9 +131,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(15, 23);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 20);
+            this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Địa chỉ";
+            this.label2.Text = "住所";
             // 
             // panel2
             // 
@@ -159,19 +159,20 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(15, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 20);
+            this.label1.Size = new System.Drawing.Size(41, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Tên Bệnh Nhân";
+            this.label1.Text = "名前";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(131, 45);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(197, 34);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(267, 26);
+            this.label4.Size = new System.Drawing.Size(122, 31);
             this.label4.TabIndex = 5;
-            this.label4.Text = "THÔNG TIN BỆNH NHÂN";
+            this.label4.Text = "情報入力";
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // Patient
             // 
@@ -183,7 +184,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Patient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Patient";
+            this.Text = "情報入力";
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

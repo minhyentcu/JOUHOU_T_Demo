@@ -1,4 +1,5 @@
-﻿using JOUHOU_T_App.Database;
+﻿using JOUHOU_T_App.DAO;
+using JOUHOU_T_App.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace JOUHOU_T_App
 {
     public partial class Patient : Form
     {
+        DataProvider dataProvider = new DataProvider();
         public Patient()
         {
             InitializeComponent();
@@ -28,8 +30,6 @@ namespace JOUHOU_T_App
         {
             try
             {
-                JOUHOU_TEntities context = new JOUHOU_TEntities();
-
                 var message = string.Empty;
 
                 if (txbName.Text.Length > 10)
@@ -53,33 +53,23 @@ namespace JOUHOU_T_App
                 else
                 {
                     // Insert data to database
-                    var group = byte.Parse(nGroup.Value.ToString());
+                    var isInsert = true;
+                    var groupName = byte.Parse(nGroup.Value.ToString());
 
-                    var isExitstGroup = context.GROUP_T.Where(x => x.GROUP_NAME == group).FirstOrDefault();
+                    var groupId = GetGroupPatientId(groupName);
 
-                    var patient = new JOUHOU_T
+                    if (groupId > 0)
                     {
-                        PATIENTS_NAME = txbName.Text,
-                        PATIENTS_ADDRESS = txbAddress.Text,
-                    };
-                    // insert data to database if exitst group
-                    if (isExitstGroup == null)
-                    {
-                        var group_T = new GROUP_T
-                        {
-                            GROUP_NAME = group,
-                        };
-                        group_T.JOUHOU_T.Add(patient);
-                        context.GROUP_T.Add(group_T);
+                        isInsert = InsertPatient(txbName.Text, txbAddress.Text, groupId);
                     }
                     else
                     {
-                        //inser partient
-                        patient.GROUP_T = isExitstGroup;
-                        context.JOUHOU_T.Add(patient);
+                        groupId = InsertGroup(groupName);
+                        if (groupId > 0)
+                        {
+                            isInsert = InsertPatient(txbName.Text, txbAddress.Text, groupId);
+                        }
                     }
-                    //save to database
-                    context.SaveChanges();
                     this.Close();
                 }
             }
@@ -105,6 +95,39 @@ namespace JOUHOU_T_App
         {
             //check enable btnAdd
             btnAdd.Enabled = !string.IsNullOrEmpty(txbName.Text);
+        }
+
+        private int GetGroupPatientId(int groupName)
+        {
+            string query = $"SELECT * FROM GROUP_T WHERE GROUP_NAME = {groupName}";
+            DataTable data = dataProvider.ExcuteQuery(query);
+            if (data.Rows.Count > 0)
+            {
+                return Convert.ToInt32(data.Rows[0]["GROUP_ID"]);
+            }
+            return -1;
+        }
+
+
+        private int InsertGroup(int name)
+        {
+            string query = $"INSERT INTO GROUP_T ( GROUP_NAME ) VALUES  ({name})";
+            int result = dataProvider.ExcuteNonQueryForGroup(query);
+
+            return result;
+        }
+
+        private bool InsertPatient(string name, string address, int groupId)
+        {
+            string query = $"INSERT INTO JOUHOU_T ( PATIENTS_NAME,PATIENTS_ADDRESS, GROUP_ID) VALUES  ('{name}','{address}',{groupId})";
+            int result = dataProvider.ExcuteNonQuery(query);
+
+            return result > 0;
+        }
+
+        private void Label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -9,14 +9,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.Data.OleDb;
+
+using System.Data.Sql;
+using System.Data.SqlClient;
+using JOUHOU_T_App.DAO;
+
 namespace JOUHOU_T_App
 {
     public partial class Main_form : Form
     {
+        OleDbConnection cnn;
+
+        // OleDbDataAdapter adapter;
+
         public Main_form()
         {
             InitializeComponent();
             LoadDataPatient();
+
         }
 
         //LoadData to dataGridView
@@ -24,13 +35,15 @@ namespace JOUHOU_T_App
         {
             try
             {
-                JOUHOU_TEntities context = new JOUHOU_TEntities();
-                gridViewInfo.DataSource = context.JOUHOU_T.Select(x => new { x.ID, x.PATIENTS_NAME, x.PATIENTS_ADDRESS, x.GROUP_T.GROUP_NAME }).OrderBy(j => j.ID).ToList();
-                gridViewInfo.Columns[0].Visible = false;
-                gridViewInfo.Columns[1].HeaderText = "Patients Name";
-                gridViewInfo.Columns[2].HeaderText = "Patients Address";
-                gridViewInfo.Columns[3].HeaderText = "Group";
-
+                DataProvider dataProvider = new DataProvider();
+                var querey = "select PATIENTS_NAME, PATIENTS_ADDRESS ,GROUP_NAME  from JOUHOU_T  J ,GROUP_T G WHERE  J.GROUP_ID=G.GROUP_ID ORDER BY J.ID  ASC";
+                var data = dataProvider.ExcuteQuery(querey);
+                gridViewInfo.DataSource = data;
+                gridViewInfo.Columns[0].HeaderText = "名前";
+                gridViewInfo.Columns[1].HeaderText = "住所";
+                gridViewInfo.Columns[2].HeaderText = "グループ";
+                gridViewInfo.EnableHeadersVisualStyles = false;
+                gridViewInfo.ColumnHeadersDefaultCellStyle.BackColor = Color.Blue;
             }
             catch (Exception ex)
             {
@@ -43,7 +56,6 @@ namespace JOUHOU_T_App
         private void BtnInsert_Click(object sender, EventArgs e)
         {
             var fPatient = new Patient();
-            this.Hide();
             fPatient.ShowDialog();
             this.LoadDataPatient();
             this.Show();
