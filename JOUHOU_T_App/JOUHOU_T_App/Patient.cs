@@ -1,13 +1,6 @@
 ﻿using JOUHOU_T_App.DAO;
-using JOUHOU_T_App.Database;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace JOUHOU_T_App
@@ -34,11 +27,11 @@ namespace JOUHOU_T_App
 
                 if (txbName.Text.Length > 10)
                 {
-                    message = "数字しか入力できません。";
+                    message = "データエラー";
                 }
                 if (txbAddress.Text.Length > 20)
                 {
-                    message = "数字しか入力できません。";
+                    message = "データエラー";
                 }
                 if (nGroup.Value > 9 || nGroup.Value < 0)
                 {
@@ -47,7 +40,7 @@ namespace JOUHOU_T_App
 
                 if (!string.IsNullOrEmpty(message))
                 {
-                    MessageBox.Show(message, "Thông báo", MessageBoxButtons.OK);
+                    MessageBox.Show(message, "お知らせ", MessageBoxButtons.OK);
                 }
 
                 else
@@ -76,7 +69,7 @@ namespace JOUHOU_T_App
             catch (Exception ex)
             {
                 // prossess logging
-                MessageBox.Show("Lỗi dữ liệu", "Thông báo", MessageBoxButtons.OK);
+                MessageBox.Show("データエラー", "お知らせ", MessageBoxButtons.OK);
             }
         }
 
