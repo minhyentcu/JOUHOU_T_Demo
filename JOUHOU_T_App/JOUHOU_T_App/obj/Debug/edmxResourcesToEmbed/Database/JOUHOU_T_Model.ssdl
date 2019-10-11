@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="JOUHOU_TModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GROUP_T">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GROUP_NAME" Type="tinyint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="JOUHOU_T">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PATIENTS_NAME" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="PATIENTS_ADDRESS" Type="nvarchar" MaxLength="20" />
+    <Property Name="GROUP_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__JOUHOU_T__GROUP___1273C1CD">
+    <End Role="GROUP_T" Type="Self.GROUP_T" Multiplicity="1" />
+    <End Role="JOUHOU_T" Type="Self.JOUHOU_T" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GROUP_T">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="JOUHOU_T">
+        <PropertyRef Name="GROUP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="JOUHOU_TModelStoreContainer">
+    <EntitySet Name="GROUP_T" EntityType="Self.GROUP_T" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="JOUHOU_T" EntityType="Self.JOUHOU_T" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__JOUHOU_T__GROUP___1273C1CD" Association="Self.FK__JOUHOU_T__GROUP___1273C1CD">
+      <End Role="GROUP_T" EntitySet="GROUP_T" />
+      <End Role="JOUHOU_T" EntitySet="JOUHOU_T" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

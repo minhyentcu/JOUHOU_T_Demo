@@ -1,0 +1,16 @@
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\JOUHOU_T_App.exe.config
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\JOUHOU_T_App.exe
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\JOUHOU_T_App.pdb
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\EntityFramework.dll
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\EntityFramework.SqlServer.dll
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\EntityFramework.xml
+D:\App\JOUHOU_T_App\JOUHOU_T_App\bin\Debug\EntityFramework.SqlServer.xml
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.csprojAssemblyReference.cache
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.Main_form.resources
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.Patient.resources
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.Properties.Resources.resources
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.csproj.GenerateResource.cache
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.csproj.CoreCompileInputs.cache
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.csproj.CopyComplete
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.exe
+D:\App\JOUHOU_T_App\JOUHOU_T_App\obj\Debug\JOUHOU_T_App.pdb
